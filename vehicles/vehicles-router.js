@@ -18,7 +18,7 @@ router.get("/", (req, res) => {
 
 router.get("/:id", (req, res) => {
   const { id } = req.params;
-  Vehicles.get(id).then(vehicle => {
+  Vehicles.getById(id).then(vehicle => {
     if (vehicle) {
       res.status(200).json(vehicle);
     } else {
@@ -32,7 +32,7 @@ router.get("/:id", (req, res) => {
 
 router.get("/:VIN", (req, res) => {
   const { VIN } = req.params;
-  Vehicles.get(VIN).then(vehicle => {
+  Vehicles.getByVIN(VIN).then(vehicle => {
     if (vehicle) {
       res.status(200).json(vehicle);
     } else {
@@ -45,8 +45,8 @@ router.get("/:VIN", (req, res) => {
 });
 
 router.get("/:make", (req, res) => {
-  const { make } = req.params;
-  Vehicles.get(make).then(vehicles => {
+  const { Make } = req.params;
+  Vehicles.getByMake(Make).then(vehicles => {
     if (vehicles) {
       res.status(200).json(vehicles);
     } else {
@@ -60,7 +60,7 @@ router.get("/:make", (req, res) => {
 
 router.get("/:model", (req, res) => {
   const { model } = req.params;
-  Vehicles.get(model).then(vehicles => {
+  Vehicles.getByModel(model).then(vehicles => {
     if (vehicles) {
       res.status(200).json(vehicles);
     } else {
