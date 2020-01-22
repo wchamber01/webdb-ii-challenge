@@ -22,9 +22,7 @@ function getById(id) {
 }
 
 function getByVIN(VIN) {
-  return db("vehicles")
-    .where({ VIN })
-    .first();
+  return db("vehicles").where({ VIN });
 }
 
 function getByMake(make) {
