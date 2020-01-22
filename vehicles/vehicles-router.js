@@ -73,8 +73,22 @@ router.get("/:model", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  const { VIN, make, model, transmission_type, title_status } = req.body;
-  Vehicles.insert({ VIN, make, model, transmission_type, title_status })
+  const {
+    VIN,
+    Make,
+    Model,
+    Mileage,
+    Transmission_Type,
+    Title_Status
+  } = req.body;
+  Vehicles.insert({
+    VIN,
+    Make,
+    Model,
+    Mileage,
+    Transmission_Type,
+    Title_Status
+  })
     .then(vehicle => {
       if (vehicle) {
         res.status(200).json(vehicle);
